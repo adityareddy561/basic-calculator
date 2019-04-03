@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="calc.css">
+	<title>Basic Calculator</title>
+</head>
+<body>
+  <div class="calc-body">
+  	<div class="textbox">
+  	<input type="text" name="" class="input1" id="dis0">
+  	<input type="text" name="" class="input1 output" id="dis">
+  	</div>
+  	<div class="row">
+  	<button class="button-char" id="C"  onclick="set1()">CE</button>
+  	<button class="button-char" onclick="opl('(')">(</button>
+  	<button class="button-char" onclick="opl(')')">)</button>
+  	<button class="button-char" onclick="opl('/')">/</button>	
+  	</div>
+  	<div class="row">
+  	<button class="button-num" onclick="opl('7')">7</button>
+  	<button class="button-num" onclick="opl('8')">8</button>
+  	<button class="button-num" onclick="opl('9')">9</button>
+  	<button class="button-char" onclick="opl('*')">x</button>	
+  	</div>
+  	<div class="row">
+  	<button class="button-num" onclick="opl('4')">4</button>
+  	<button class="button-num" onclick="opl('5')">5</button>
+  	<button class="button-num" onclick="opl('6')">6</button>
+  	<button class="button-char" onclick="opl('-')">-</button>	
+  	</div>
+  	<div class="row">
+  	<button class="button-num" onclick="opl('1')">1</button>
+  	<button class="button-num" onclick="opl('2')">2</button>
+  	<button class="button-num" onclick="opl('3')">3</button>
+  	<button class="button-char" onclick="opl('+')">+</button>	
+  	</div>
+  	<div class="row">
+  	<button class="button-num" onclick="opl('.')">.</button>
+  	<button class="button-num" onclick="opl('0')">0</button>
+  	<button class="button-num" onclick="opl('00')">00</button>
+  	<button class="button-char" onclick="op()">=</button>	
+  	</div>
+  </div>
+</body>
+<script>
+	var expr;
+	var flag=0;
+	function opl(k) {
+		if(flag==1){
+			set1();
+			flag=0;
+		}
+		document.getElementById('dis').value+=k;
+	}
+	function set1(){
+		document.getElementById('dis').value=0;
+		document.getElementById('dis0').value="";
+
+	}
+	function op0(){
+		expr=document.getElementById('dis').value;
+		document.getElementById('dis0').value=expr;
+	}
+	function op(){
+		op0();
+		document.getElementById('dis').value=eval(expr);;
+		flag=1;
+
+	}
+</script>
+
+</html>
